@@ -1,9 +1,159 @@
-body {
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body {
+  height: 100vh;
+  border-bottom: 20px solid greenyellow;
+  height: 100vh;
+  background: skyblue;
+  margin: 0;
+}
+
+.sun {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: gold;
+  top: 10px;
+  box-shadow: 0 0 80px orange;
+}
+
+.animal {
+  display: grid;
+  width: 100px;
+  height: 50px;
+  background: salmon;
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+}
+
+.speechbubble {
+  position: absolute;
+  bottom: 80px;
+  width: 120px;
+  text-align: center;
+  padding: 10px 20px;
+  background: #fff;
+  font-family: sans-serif;
+  color: #393939;
+  border-radius: 6px;
+  animation: opacity 2s ease-in-out forwards;
+  @keyframes opacity {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &::after {
+    content: '';
+
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.bird {
+  @extend .animal;
+  border-radius: 40px;
+  background: black;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.spout {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  border: 10px solid orange;
+  width: 50px;
+  border-right-color: transparent;
+  border-radius: 10px;
+  transform: translate(-50%);
+}
+
+.wing {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  height: 80px;
+  width: 10px;
+  border: 40px solid transparent;
+  border-width: 30px 30px 40px 10px;
+  border-top-color: #333;
+  transform-origin: center top;
+  animation: flap 0.2s linear infinite;
+}
+
+@keyframes flap {
+  from {
+    transform: scale(1, -1);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+.dog {
+  @extend .animal;
+  transition: all 0.5s ease;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: flex-end;
+  justify-items: center;
+  bottom: 30px;
+}
+
+.eye {
+  margin-top: -5px;
+  animation: blink 3s 1s linear infinite;
+  grid-column: span 2;
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px white;
+
+  // light
+  &:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+  }
+}
+
+.leg {
+  background: black;
+  width: 10px;
+  height: 20px;
+  transform: translate(0, 100%);
+}
+
+@keyframes blink {
+  50% {
+    transform: scale(1, 1);
+  }
+
+  55% {
+    transform: scale(1, 0);
+  }
+
+  60% {
+    transform: scale(1, 1);
+  }
 }

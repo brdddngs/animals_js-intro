@@ -1,4 +1,4 @@
-import Animal from './Animal'
+import Entity from './Entity'
 
 export default class Cat extends Animal {
   constructor({ name = 'Hank', age, lives = 9 }) {

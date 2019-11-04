@@ -1,4 +1,4 @@
 import './styles.scss'
-import World from './World'
+import World from './components/World'
 
 new World()
